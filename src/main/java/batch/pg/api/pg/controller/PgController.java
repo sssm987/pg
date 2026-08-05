@@ -2,6 +2,7 @@ package batch.pg.api.pg.controller;
 
 import batch.pg.api.pg.dto.PgApproveRequest;
 import batch.pg.api.pg.dto.PgApproveResponse;
+import batch.pg.api.pg.dto.PgCancelRequest;
 import batch.pg.application.pg.service.PgService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,10 @@ public class PgController {
             @RequestBody PgApproveRequest request
     ) {
         return pgService.approve(request);
+    }
+    @PostMapping("/cancel")
+    public void cancel(@RequestBody PgCancelRequest request){
+        pgService.cancel(request);
     }
 
 }
