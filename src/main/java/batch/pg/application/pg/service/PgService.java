@@ -16,7 +16,9 @@ public class PgService {
     private final AtomicLong sequence = new AtomicLong(1);
 
     public PgApproveResponse approve(PgApproveRequest pgApproveRequest){
-        System.out.println("승인번호 : "+ pgApproveRequest.paymentId()+"주문번호 : "+pgApproveRequest.orderId()+"승인금액 : "+pgApproveRequest.amount());
+        System.out.println("승인번호 : "+ pgApproveRequest.paymentId());
+        System.out.println("주문번호 : "+pgApproveRequest.orderId());
+        System.out.println("승인금액 : "+pgApproveRequest.amount());
         return PgApproveResponse.builder()
                 .transactionId(sequence.getAndIncrement())
                 .approvedAt(LocalDateTime.now())
